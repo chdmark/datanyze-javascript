@@ -1,0 +1,29 @@
+
+
+.schedule-container {
+	background-color: grey;
+	width: 80%;
+	margin: auto;
+	padding: 30px;
+
+
+
+}
+
+
+
+.events{
+
+
+}
+
+.row{
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+
+
+.start, .end {
+	border: 2px solid green;
+	
+}
