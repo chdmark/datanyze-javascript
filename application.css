@@ -1,0 +1,64 @@
+
+
+.schedule-container {
+	background-color: grey;
+	width: 80%;
+	margin: auto;
+	padding: 30px;
+	
+
+
+
+}
+
+.line-container {
+	border: 2px solid #fff;
+	border-right: 4px dotted;
+	position: relative;
+	
+	
+}
+
+.line{
+	height: 90%;
+	width: 25%;
+	position: absolute;
+	border-right: 2px dashed #008080;
+}
+
+
+
+
+.row{
+	
+	position: relative;
+	z-index: 1;
+}
+
+.events{
+	border: 2px solid orange;
+	margin-top: 45px;
+	margin-bottom: 45px;
+	background-color: yellow;
+}
+
+.start{
+
+}
+
+
+.start, .end {
+	border: 2px solid green;
+	
+}
+
+.left,.middle,.right{
+	display: inline-block;
+	border: 1px solid red;
+	margin-left: 50px;
+}
+
+.schedule-container{
+
+
+}
