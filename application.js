@@ -1,3 +1,10 @@
+$(function(){
+
+	makeSchedule(startEnd, commands);
+	
+	
+});
+
 var startEnd = 
 { 
 	startTime:123456789, // timestamp 
@@ -18,4 +25,16 @@ var commands =
 	} 
 ]
 
-var makeSchedule = function(time, commands)
+var makeSchedule = function(time, events) {
+	var parseTime = time;
+	var start = parseTime.startTime;
+	var end = parseTime.endTime;
+	console.log(start);
+	console.log(end);
+	
+	$(".start").children(".left").append(start);
+	$(".start").children(".right").append("Class Session Started");
+	$(".end").children(".left").append(end);
+	$(".end").children(".right").append("Class Session Ended");
+}
+
