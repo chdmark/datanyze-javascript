@@ -14,15 +14,21 @@ var startEnd =
 var commands = 
 [ 
 	{ 
-	timestamp:123456799,// timestamp 
-	commandName:'Lock', // human readable command 
-	commandType:'lock'  // fontawesome name without fa­ 
-	}, 
-	{ 
 	timestamp:123456889, 
 	commandName:'Chat', 
 	commandType:'comment­o' 
-	} 
+	}, 
+	{ 
+	timestamp:123456799,// timestamp 
+	commandName:'Lock', // human readable command 
+	commandType:'lock'  // fontawesome name without fa­ 
+	},
+	{ 
+	timestamp:123456999, 
+	commandName:'Chat', 
+	commandType:'comment­o' 
+	}
+	
 ]
 
 var makeSchedule = function(time, events) {
@@ -37,12 +43,28 @@ var makeSchedule = function(time, events) {
 	$(".end").children(".left").append(end);
 	$(".end").children(".middle").append($("<i class='fa fa-circle'></i>"));
 	$(".end").children(".right").append("Class Session Ended");
-
-	var newArray = $.each(events, function(n, value){
-		$.makeArray(value)
-	});
-	console.log(newArray);
 	
+	sortedEvents = events.sort(function(a,b){
+		return parseFloat(a.timestamp) - parseFloat(b.timestamp);
+	});
+
+	$.each(sortedEvents, function(index, value){
+		console.log(value)
+		debugger
+	})
+
+	
+
+	// var newArray = []
+	// $.each(events, function(index, value){
+	// 	arrayValue = $.makeArray(value)
+
+	// 	newArray.push(arrayValue)
+	// });
+
+	// $.each(newArray, function(index, value){
+	// 	console.log(newArray)
+	// })
 };
 
 
