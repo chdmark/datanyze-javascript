@@ -49,22 +49,14 @@ var makeSchedule = function(time, events) {
 	});
 
 	$.each(sortedEvents, function(index, value){
-		console.log(value)
+		var time = convertTimestamp(value.timestamp);
+		$(".events").children(".left").append(time);
 		debugger
-	})
+	});
 
 	
 
-	// var newArray = []
-	// $.each(events, function(index, value){
-	// 	arrayValue = $.makeArray(value)
-
-	// 	newArray.push(arrayValue)
-	// });
-
-	// $.each(newArray, function(index, value){
-	// 	console.log(newArray)
-	// })
+	
 };
 
 
