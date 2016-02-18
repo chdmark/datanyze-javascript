@@ -38,11 +38,11 @@ var makeSchedule = function(time, events) {
 	$(".end").children(".middle").append($("<i class='fa fa-circle'></i>"));
 	$(".end").children(".right").append("Class Session Ended");
 
-	var newArray = $.each(events, function(n){
-		$.makeArray(n)
+	var newArray = $.each(events, function(n, value){
+		$.makeArray(value)
 	});
 	console.log(newArray);
-	debugger
+	
 };
 
 
