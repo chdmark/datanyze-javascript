@@ -16,7 +16,7 @@ var commands =
 	{ 
 	timestamp:123456889, 
 	commandName:'Chat', 
-	commandType:'comment­o' 
+	commandType:'cloud' 
 	}, 
 	{ 
 	timestamp:123456799,// timestamp 
@@ -26,7 +26,7 @@ var commands =
 	{ 
 	timestamp:123456999, 
 	commandName:'Chat', 
-	commandType:'comment­o' 
+	commandType:'commenting-o' 
 	}
 	
 ]
@@ -52,9 +52,12 @@ var makeSchedule = function(time, events) {
 	$.each(sortedEvents, function(index, value){
 		var time = convertTimestamp(value.timestamp);
 		$('.before').prepend($("<div id=" + index + " class='events row'><div class='left'></div><div class='middle'></div><div class='right'></div></div></div>"));
-		// $('.events').uniqueId();
-		debugger
+		
+
 		$('#' + index).children(".left").append(time);
+
+		$('#' + index).children(".middle").append($(
+			"<i class='fa fa-" + value.commandType + "'></i>"));
 		
 		
 	});
