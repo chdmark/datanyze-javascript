@@ -9,7 +9,7 @@ var startEnd =
 {
 	startTime:123456789, // timestamp
 	endTime:133456999    // timestamp
-}
+};
 
 var commands =
 [
@@ -29,17 +29,17 @@ var commands =
 	commandType:'commenting-o'
 	}
 
-]
+];
 
 function makeSchedule(time, events) {
 	var parseTime = time;
 	var start = convertTimestamp(parseTime.startTime);
 	var end = convertTimestamp(parseTime.endTime);
 
-	$('.schedule-container').append($("<hr width='1' size='100px' margin='0 auto'><div class='event-time'>" + start + "</div><div class='circle'><i id='start-circle' class='fa fa-circle fa-3x'></i></div><div class='event-comment'>Class Session Started</div>"))
-	$('#start-circle').css("color", "#41c3e5")
-	$('.schedule-container').prepend($("<div class='event-time'>" + end + "</div><div class='circle'><i id='end-circle' class='fa fa-circle fa-3x'></i></div><div class='event-comment'>Class Session Ended</div>"))
-	$('#end-circle').css("color", "#ff5050")
+	$('.schedule-container').append($("<hr width='1' size='100px' margin='0 auto'><div class='event-time'>" + start + "</div><div class='circle'><i id='start-circle' class='fa fa-circle fa-3x'></i></div><div class='event-comment'>Class Session Started</div>"));
+	$('#start-circle').css("color", "#41c3e5");
+	$('.schedule-container').prepend($("<div class='event-time'>" + end + "</div><div class='circle'><i id='end-circle' class='fa fa-circle fa-3x'></i></div><div class='event-comment'>Class Session Ended</div>"));
+	$('#end-circle').css("color", "#ff5050");
 	sortedEvents = events.sort(function(a,b){
 		return parseFloat(a.timestamp) - parseFloat(b.timestamp);
 	});
