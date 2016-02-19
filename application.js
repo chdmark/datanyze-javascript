@@ -9,7 +9,7 @@ var startEnd =
 {
 	startTime:123456789, // timestamp
 	endTime:133456999    // timestamp
-}
+};
 
 var commands =
 [
@@ -29,39 +29,32 @@ var commands =
 	commandType:'commenting-o'
 	}
 
-]
+];
 
-var makeSchedule = function(time, events) {
+function makeSchedule(time, events) {
 	var parseTime = time;
 	var start = convertTimestamp(parseTime.startTime);
 	var end = convertTimestamp(parseTime.endTime);
+	var divCircle = "<div class='circle'>";
+	var line = "<hr width='1' size='100px' margin='0 auto'>"
+	var eventTime = "<div class='event-time'>"
+	var eventComment =  "<div class='event-comment'>"
 
-
-	$(".start").children(".left").append(start);
-	$(".start").children(".middle").append($("<i class='fa fa-circle'></i>"));
-	$(".start").children(".right").append("Class Session Started");
-	$(".end").children(".left").append(end);
-	$(".end").children(".middle").append($("<i class='fa fa-circle'></i>"));
-	$(".end").children(".right").append("Class Session Ended");
-
+	$('.schedule-container').append($(line+ eventTime + start + "</div>" + divCircle +"<i id='start-circle' class='fa fa-circle fa-3x'></i></div>" + eventComment + "Class Session Started</div>"));
+	$('#start-circle').css("color", "#41c3e5");
+	$('.schedule-container').prepend($(eventTime +  end + "</div>"+ divCircle + "<i id='end-circle' class='fa fa-circle fa-3x'></i></div>"+ eventComment + "Class Session Ended</div>"));
+	$('#end-circle').css("color", "#ff5050");
 	sortedEvents = events.sort(function(a,b){
 		return parseFloat(a.timestamp) - parseFloat(b.timestamp);
 	});
 
-
 	$.each(sortedEvents, function(index, value){
 		var time = convertTimestamp(value.timestamp);
-		$('.before').prepend($("<div id=" + index + " class='events row'><div class='left'></div><div class='middle'></div><div class='right'></div></div></div>"));
-
-
-		$('#' + index).children(".left").append(time);
-
-		$('#' + index).children(".middle").append($(
-			"<i class='fa fa-" + value.commandType + "'></i>"));
-
+		$('.events-container').prepend($(line + "<div id=" + index + " class='event-time'>" + time + "</div>"+ divCircle + "<i class='fa fa-" +value.commandType + " fa-2x'></i></div>"))
 
 	});
 
+	
 
 
 
@@ -69,13 +62,13 @@ var makeSchedule = function(time, events) {
 
 
 var convertTimestamp = function(timestamp) {
-  var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
+  var d = new Date(timestamp * 1000),	
 		yyyy = d.getFullYear(),
-		mm = ('0' + (d.getMonth() + 1)).slice(-2),	// Months are zero based. Add leading 0.
-		dd = ('0' + d.getDate()).slice(-2),			// Add leading 0.
+		mm = ('0' + (d.getMonth() + 1)).slice(-2),	
+		dd = ('0' + d.getDate()).slice(-2),			
 		hh = d.getHours(),
 		h = hh,
-		min = ('0' + d.getMinutes()).slice(-2),		// Add leading 0.
+		min = ('0' + d.getMinutes()).slice(-2),		
 		ampm = 'AM',
 		time;
 
@@ -89,7 +82,7 @@ var convertTimestamp = function(timestamp) {
 		h = 12;
 	}
 
-	// ie: 2013-02-18, 8:35 AM
+	
 	time = h + ':' + min + ' ' + ampm;
 
 	return time;
