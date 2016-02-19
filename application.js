@@ -48,10 +48,15 @@ var makeSchedule = function(time, events) {
 		return parseFloat(a.timestamp) - parseFloat(b.timestamp);
 	});
 
+	
 	$.each(sortedEvents, function(index, value){
 		var time = convertTimestamp(value.timestamp);
-		$(".events").children(".left").append(time);
+		$('.before').prepend($("<div id=" + index + " class='events row'><div class='left'></div><div class='middle'></div><div class='right'></div></div></div>"));
+		// $('.events').uniqueId();
 		debugger
+		$('#' + index).children(".left").append(time);
+		
+		
 	});
 
 	
