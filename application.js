@@ -1,6 +1,6 @@
 $(function(){
 
-	makeSchedule(startEnd, commands);
+	layoutCommands(startEnd, commands);
 
 
 });
@@ -31,7 +31,7 @@ var commands =
 
 ];
 
-function makeSchedule(time, events) {
+function layoutCommands(time, events) {
 	var parseTime = time;
 	var start = convertTimestamp(parseTime.startTime);
 	var end = convertTimestamp(parseTime.endTime);
@@ -55,9 +55,6 @@ function makeSchedule(time, events) {
 	});
 
 	
-
-
-
 };
 
 
